@@ -12,7 +12,7 @@ output:
 library(tidyverse)
 knitr::opts_chunk$set(echo = FALSE)
 
-cat_data <- read_csv(here::here(params$other_path, "data", "cat_salt.csv"))
+cat_data <- read_csv(here::here(params$other_path, "data", "cats.csv"))
 ```
 
 ## Introduction
