@@ -1,0 +1,41 @@
+---
+title: "A fabulous article in a different folder"
+params:
+  other_path: ""
+  out_width: "80%"
+output:
+  pdf_document: 
+    pandoc_args: ["--lua-filter=reduce_header_level.lua"]
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+knitr::opts_chunk$set(echo = FALSE)
+
+cat_data <- read_csv(here::here(params$other_path, "data", "cat_salt.csv"))
+```
+
+## Introduction
+Many people think that there is a relationship between a cat's height and how much salt it consumes.
+  
+## Methods
+```{r, out.width=params$out_width, fig.cap="A very funny cat"}
+knitr::include_graphics(here::here(params$other_path, "figures", "cat.jpg"))
+```
+
+This cat came up with all of the methods for this paper.
+
+
+## Results
+```{r, fig.cap="Cat height by cat salt eating"}
+cat_data %>% 
+  ggplot() +
+    geom_point(aes(cat_height, cat_salt_eating)) +
+    labs(x = "Cat height", y = "Daily amount of salt consumed")
+```
+
+## Discussion
+There's some uncertainty in our data, but we've clearly got a cat-salt problem here.
+
+## Conclusion
+This changes everything.
