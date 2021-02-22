@@ -8,11 +8,11 @@ output:
     pandoc_args: ["--lua-filter=reduce_header_level.lua"]
 ---
 
-```{r setup, include=FALSE}
+```{r, include=FALSE}
 library(tidyverse)
-knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
 
-cat_data <- read_csv(here::here(params$other_path, "data", "cats.csv"))
+cat_data <- read_csv(str_c(params$other_path, "data/cats.csv"))
 ```
 
 ## Introduction
@@ -20,7 +20,7 @@ Many people think that there is a relationship between a cat's height and how mu
   
 ## Methods
 ```{r, out.width=params$out_width, fig.cap="A very funny cat"}
-knitr::include_graphics(here::here(params$other_path, "figures", "cat.jpg"))
+include_graphics(str_c(params$other_path, "figures/cat.jpg"))
 ```
 
 This cat came up with all of the methods for this paper.
